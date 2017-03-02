@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">MyStoreInventory</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
+    <string name="discard">Discard</string>
+
+    <!-- Dialog button text for the option to keep editing the current pet [CHAR LIMIT=20] -->
+    <string name="keep_editing">Keep Editing</string>
+    <string name="delete_dialog_msg">Delete this Product?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="editor_delete_product_successful">Product deleted</string>
+
+    <!-- Toast message in editor when current pet has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_product_failed">Error with deleting product</string>
+    <string name="choose_product_photo">Choose product photo</string>
+    <string name="save_product">Save Product</string>
+    <string name="enter_product_quantity">Enter product quantity</string>
+    <string name="enter_supplier_name">Enter supplier name</string>
+    <string name="supplier_name">Supplier Name</string>
+    <string name="product_quantity">Product Quantity</string>
+    <string name="picture">Picture</string>
+    <string name="overview">Overview</string>
+    <string name="enter_name_of_the_product">Enter name of the product..</string>
+    <string name="enter_price_of_the_product">Enter price of the product</string>
+    <string name="product_image">Product Image</string>
+    <string name="make_a_sale">Make a sale</string>
+    <string name="accept_shipment">Accept Shipment</string>
+    <string name="edit_product">Edit Product</string>
+    <string name="delete_product">Delete Product</string>
+    <string name="order_more_from_supplier">Order more from Supplier</string>
+    <string name="photo_selected_successfully">Photo selected successfully</string>
+    <string name="order_more">Order more quantity of X product</string>
+    <string name="supplier_email_id">supplier@gmail.com</string>
+    <string name="no_email_client">No email client installed..</string>
+    <string name="quantity_less_than_zero">Quantity cannot be less than zero</string>
+    <string name="product_requires_name">Product requires a name</string>
+    <string name="price_should_be_positive">Price needs to be a positive integer</string>
+    <string name="product_requires_supplier">Product requires a supplier</string>
+    <string name="product_requires_photo">Product requires a photo</string>
+</resources>
