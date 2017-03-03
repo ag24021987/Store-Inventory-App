@@ -124,8 +124,8 @@ public class InventoryProvider extends ContentProvider {
             throw new IllegalArgumentException(getContext().getString(R.string.product_requires_supplier));
         }
 
-        bArray = values.getAsByteArray(InventoryEntry.COLUMN_PICTURE);
-        if (bArray == null) {
+        String pictureInString = values.getAsString(InventoryEntry.COLUMN_PICTURE);
+        if (pictureInString == null) {
             throw new IllegalArgumentException(getContext().getString(R.string.product_requires_photo));
         }
 

@@ -14,4 +14,8 @@
 
     <!-- Primary dark color for the editor -->
     <color name="editorColorPrimaryDark">#394450</color>
+    
+    <color name="textColorListItem">#2B3D4D</color>
+
+    <color name="textColorListItemPrice">#AEB6BD</color>
 </resources>

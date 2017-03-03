@@ -39,4 +39,10 @@
     <string name="price_should_be_positive">Price needs to be a positive integer</string>
     <string name="product_requires_supplier">Product requires a supplier</string>
     <string name="product_requires_photo">Product requires a photo</string>
+    <string name="name_empty">Name cannot be empty</string>
+    <string name="price_empty">Price cannot be empty</string>
+    <string name="supplier_empty">Supplier cannot be empty</string>
+    <string name="picture_empty">Picture cannot be empty</string>
+    <string name="it_s_a_bit_lonely_here">It\'s a bit lonely here</string>
+    <string name="click_on_the_button_to_add_a_product">Click on the + button to add a product</string>
 </resources>

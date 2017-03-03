@@ -11,7 +11,7 @@
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_add_black_24dp"/>
+        android:src="@drawable/ic_add_black_24dp" />
 
     <RelativeLayout
         android:id="@+id/empty_view"
@@ -34,8 +34,8 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-medium"
             android:paddingTop="16dp"
-            android:text="It's a bit lonely here"
-            android:textAppearance="?android:textAppearanceMedium"/>
+            android:text="@string/it_s_a_bit_lonely_here"
+            android:textAppearance="?android:textAppearanceMedium" />
 
         <TextView
             android:id="@+id/empty_subtitle_text"
@@ -45,8 +45,8 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif"
             android:paddingTop="8dp"
-            android:text="Click on the + button to add a product"
+            android:text="@string/click_on_the_button_to_add_a_product"
             android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#A2AAB0"/>
+            android:textColor="#A2AAB0" />
     </RelativeLayout>
 </RelativeLayout>

@@ -10,6 +10,8 @@ import android.provider.BaseColumns;
 
 public class InventoryContract {
 
+
+    //An empty private constructor makes sure that the class is not going to be initialised.
     private InventoryContract(){};
 
     public static final String CONTENT_AUTHORITY = "com.example.agupt23.mystoreinventory";
@@ -30,8 +32,6 @@ public class InventoryContract {
                 ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_INVENTORY;
 
         public static final String TABLE_NAME = "inventory";
-
-        public static final String _ID = BaseColumns._ID;
 
         public static final String COLUMN_NAME = "product";
 

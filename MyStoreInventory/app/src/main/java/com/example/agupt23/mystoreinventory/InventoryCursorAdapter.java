@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class InventoryCursorAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
 
         ImageView imageView = (ImageView) view.findViewById(R.id.product_image);
-        imageView.setImageBitmap(convertByteArrayToBitmap(cursor.getBlob(cursor.getColumnIndex(InventoryEntry.COLUMN_PICTURE))));
+        imageView.setImageBitmap(convertByteArrayToBitmap(Base64.decode(cursor.getString(cursor.getColumnIndex(InventoryEntry.COLUMN_PICTURE)), Base64.DEFAULT)));
         TextView nameTextview = (TextView) view.findViewById(R.id.product_name);
         nameTextview.setText(cursor.getString(cursor.getColumnIndex(InventoryEntry.COLUMN_NAME)));
         TextView priceTextview = (TextView) view.findViewById(R.id.product_price);

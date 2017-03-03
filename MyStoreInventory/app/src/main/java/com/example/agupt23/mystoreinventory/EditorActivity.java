@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -26,11 +27,12 @@ public class EditorActivity extends AppCompatActivity {
     private final int SELECT_PHOTO = 1;
     private byte[] bArray;
     private Button picChooserButton;
-    private  Button saveProductButton;
+    private Button saveProductButton;
     private EditText mNameEditText;
     private EditText mPriceEditText;
     private EditText mSupplierEditText;
     private EditText mQuantityEditText;
+    private String pictureInString;
     private static final int NEW_PRODUCT_LOADER = 1;
 
     private boolean mProductHasChanged = false;
@@ -88,6 +90,7 @@ public class EditorActivity extends AppCompatActivity {
                         ByteArrayOutputStream bos = new ByteArrayOutputStream();
                         selectedImage.compress(Bitmap.CompressFormat.PNG, 100, bos);
                         bArray = bos.toByteArray();
+                        pictureInString =  Base64.encodeToString(bArray, 0);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -114,9 +117,27 @@ public class EditorActivity extends AppCompatActivity {
         String quantityString = mQuantityEditText.getText().toString().trim();
 
         if (TextUtils.isEmpty(nameString) && TextUtils.isEmpty(priceString) &&
-                TextUtils.isEmpty(supplierString)) {
+                TextUtils.isEmpty(supplierString) && TextUtils.isEmpty(pictureInString)) {
             // Since no fields were modified, we can return early without creating a new product.
             // No need to create ContentValues and no need to do any ContentProvider operations.
+            return;
+        }
+
+        if (TextUtils.isEmpty(nameString)) {
+            Toast.makeText(this, R.string.name_empty, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(priceString)) {
+            Toast.makeText(this, R.string.price_empty,Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(pictureInString)) {
+            Toast.makeText(this, R.string.picture_empty,Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(supplierString)) {
+            Toast.makeText(this, R.string.supplier_empty,Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -124,7 +145,7 @@ public class EditorActivity extends AppCompatActivity {
         values.put(InventoryEntry.COLUMN_NAME, nameString);
         values.put(InventoryEntry.COLUMN_PRICE,priceString);
         values.put(InventoryEntry.COLUMN_SUPPLIER,supplierString);
-        values.put(InventoryEntry.COLUMN_PICTURE,bArray);
+        values.put(InventoryEntry.COLUMN_PICTURE,pictureInString);
 
         int quantity = 0;
         if (!TextUtils.isEmpty(quantityString)) {

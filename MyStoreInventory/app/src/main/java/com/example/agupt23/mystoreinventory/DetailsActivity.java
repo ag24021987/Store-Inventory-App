@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -184,12 +185,12 @@ public class DetailsActivity extends AppCompatActivity  implements LoaderManager
             int price = cursor.getInt(priceColumnIndex);
             String supplier = cursor.getString(supplierColumnIndex);
             int quantity = cursor.getInt(quantityColumnIndex);
-            bArray = cursor.getBlob(pictureColumnIndex);
+            String pictureInString = cursor.getString(pictureColumnIndex);
 
             // Update the views on the screen with the values from the database
             mNameEditText.setText(name);
             mPriceEditText.setText(Integer.toString(price));
-            productPhoto.setImageBitmap(convertByteArrayToBitmap(bArray));
+            productPhoto.setImageBitmap(convertByteArrayToBitmap(Base64.decode(pictureInString,Base64.DEFAULT)));
             mQuantityEditText.setText(Integer.toString(quantity));
             mSupplierEditText.setText(supplier);
         }
@@ -247,16 +248,7 @@ public class DetailsActivity extends AppCompatActivity  implements LoaderManager
                 deleteProduct();
             }
         });
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                // User clicked the "Cancel" button, so dismiss the dialog
-                // and continue editing the pet.
-                if (dialog != null) {
-                    dialog.dismiss();
-                }
-            }
-        });
-
+        builder.setNegativeButton(R.string.cancel, null);
         // Create and show the AlertDialog
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
