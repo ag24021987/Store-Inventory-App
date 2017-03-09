@@ -45,4 +45,5 @@
     <string name="picture_empty">Picture cannot be empty</string>
     <string name="it_s_a_bit_lonely_here">It\'s a bit lonely here</string>
     <string name="click_on_the_button_to_add_a_product">Click on the + button to add a product</string>
+    <string name="sale">Sale</string>
 </resources>

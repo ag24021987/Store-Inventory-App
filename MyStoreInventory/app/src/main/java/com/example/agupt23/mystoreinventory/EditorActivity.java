@@ -141,6 +141,11 @@ public class EditorActivity extends AppCompatActivity {
             return;
         }
 
+        if (TextUtils.isEmpty(quantityString)) {
+            Toast.makeText(this, "Quantity cannot be empty",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         ContentValues values = new ContentValues();
         values.put(InventoryEntry.COLUMN_NAME, nameString);
         values.put(InventoryEntry.COLUMN_PRICE,priceString);

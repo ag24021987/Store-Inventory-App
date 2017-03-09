@@ -124,7 +124,6 @@ public class DetailsActivity extends AppCompatActivity  implements LoaderManager
         values.put(InventoryContract.InventoryEntry.COLUMN_NAME, nameString);
         values.put(InventoryContract.InventoryEntry.COLUMN_PRICE,priceString);
         values.put(InventoryContract.InventoryEntry.COLUMN_SUPPLIER,supplierString);
-        values.put(InventoryContract.InventoryEntry.COLUMN_PICTURE,bArray);
 
         int quantity = 0;
         if (!TextUtils.isEmpty(quantityString)) {
@@ -277,20 +276,13 @@ public class DetailsActivity extends AppCompatActivity  implements LoaderManager
 
     protected void sendEmail() {
         String[] TO = {getString(R.string.supplier_email_id)};
-        String[] CC = {""};
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
 
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_CC, CC);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_more));
-        emailIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.order_more));
-
-        if (emailIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(emailIntent);
-        } else {
-            Toast.makeText(this, R.string.no_email_client,Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_EMAIL, TO);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_more));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
 
